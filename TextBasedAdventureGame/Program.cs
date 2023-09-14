@@ -11,7 +11,6 @@ namespace TextBasedAdventureGame
             int curRoomNumber = 0;
             bool itemAquired = false;
             bool passageOpened = false;
-            bool answeringRiddle = false;
 
             //-1 = cant go that way
             //-2 = requires item to go this way (blocked)
