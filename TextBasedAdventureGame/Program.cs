@@ -49,7 +49,7 @@ namespace TextBasedAdventureGame
             roomArray[3].name = "Collapsed Tunnel: \n";
             roomArray[3].description = " You stand in a small branching tunnel. \n"
                 + "The branch to the \u001b[32mnorth\u001b[0m is collapsed and blocked with rubble. You can faintly make out some light through the cracks.\n" 
-                + "To the \u001b[31meast\u001b[0m you can see a steep upward sloping slide like tunnel. You don't think you could climb up that passage. \n"
+                + "To the \u001b[31msouth\u001b[0m you can see a steep upward sloping slide like tunnel. You don't think you could climb up that passage. \n"
                 + "The branch to the \u001b[32mwest\u001b[0m is twinkling with light.";
             roomArray[4].name = "Crystal Cavern: \n";
             roomArray[4].description = "You are in a breathtaking cavern filled with glowing crystals that illuminate the area with an ethereal light. The walls shimmer with precious gems, but a mysterious aura lingers. \n"
