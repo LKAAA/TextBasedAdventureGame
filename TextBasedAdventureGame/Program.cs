@@ -11,6 +11,7 @@ namespace TextBasedAdventureGame
             int curRoomNumber = 0;
             bool itemAquired = false;
             bool passageOpened = false;
+            bool answeringRiddle = false;
 
             //-1 = cant go that way
             //-2 = requires item to go this way (blocked)
@@ -42,14 +43,14 @@ namespace TextBasedAdventureGame
             roomArray[1].description = "A chamber inhabited by a raucous band of goblins. Tattered sleeping mats, crude weapons, and scattered treasure hint at their presence. They eye you with suspicion. \n"
                 + "To the \u001b[32mnorth\u001b[0m you can see little twinkiling lights flickering out of a passageway. \n"
                 + "To the \u001b[32msouth\u001b[0m you can see the mine entrance that you started in.";
-            roomArray[2].name = "Trapped Passage: \n";
+            roomArray[2].name = "Steep Passage: \n";
             roomArray[2].description = "The passage slightly widens as you crawl through. \n"
-                + "Further on you can see an abrupt drop off to the \u001b[32mnorth\u001b[0m. \n"
+                + "Further on to the \u001b[32mnorth\u001b[0m you can see the straight passage quickly turns into an almost slide like slope. \n"
                 + "You could also return to the \u001b[32msouth\u001b[0m.";
             roomArray[3].name = "Collapsed Tunnel: \n";
             roomArray[3].description = " You stand in a small branching tunnel. \n"
                 + "The branch to the \u001b[32mnorth\u001b[0m is collapsed and blocked with rubble. You can faintly make out some light through the cracks.\n" 
-                + "To the \u001b[31meast\u001b[0m you can see a slide like tunnel. You don't think you could make it up that pathway. \n"
+                + "To the \u001b[31meast\u001b[0m you can see a steep upward slopping slide like tunnel. You don't think you could climb up that passage. \n"
                 + "The branch to the \u001b[32mwest\u001b[0m is twinkling with light.";
             roomArray[4].name = "Crystal Cavern: \n";
             roomArray[4].description = "A breathtaking cavern filled with glowing crystals that illuminate the area with an ethereal light. The walls shimmer with precious gems, but a mysterious aura lingers. \n"
@@ -61,7 +62,7 @@ namespace TextBasedAdventureGame
                 + "You can either head \u001b[32mnorth\u001b[0m to what looks like a small marketplace with carved stone stalls with brightly colored tent coverings; \n"
                 + "Or you can head \u001b[32msouth\u001b[0m towards the crystal filled cavern";
             roomArray[6].name = "Goblin Market: \n";
-            roomArray[6].description = "Small stone stalls surround you. Brightly colored canvas tents cover each of them.\n"
+            roomArray[6].description = "A bustling makeshift market set up by the goblins. The noise and haggling fill the air as they try to barter with you, but you don't understand goblinese.\n"
                 + "To the \u001b[32meast\u001b[0m is a small passageway that quickly opens up into a larger room. You can make out some boxes and supplies in this room. \n"
                 + "To the \u001b[32msouth\u001b[0m is the chiseled stone bridge crossing a chasm.";
             roomArray[7].name = "Storage Room: \n";
@@ -71,7 +72,7 @@ namespace TextBasedAdventureGame
                 + "You could also walk back to the marketplace to the \u001b[32mwest\u001b[0m.";
             roomArray[8].name = "Haunted Shaft: \n";
             roomArray[8].description = "A chilling passage filled with echoes of ghostly miners. The walls are adorned with crude drawings depicting their torment. An otherworldly presence is palpable.\n"
-                + "To the \u001b[32mnorth\u001b[0m you can see a large room with a raised platform in the center. You can't quite make out whats on it. \n"
+                + "To the \u001b[32mnorth\u001b[0m you can see a large room with a raised platform in the center. You can't quite make out what's on it. \n"
                 + "To the \u001b[32msouth\u001b[0m you can return to the cluttered storage room";
             roomArray[9].name = "Ancient Forge: \n";
             roomArray[9].description = "You stand on a raised platform in the center of a large room. A massive forge surrounded by intricate machinery stands before you. Enchanted anvils and old tools surround you. \n"
@@ -84,7 +85,7 @@ namespace TextBasedAdventureGame
                 + "Or you can head \u001b[32msouth\u001b[0m back towards the forge room.";
             roomArray[11].name = "Guardian Chamber: \n";
             roomArray[11].description = "You enter a large chamber. At the far end of it stands a towering stone golem. As you enter the room you hear a loud clang and an iron gate closes behind you. \n"
-                + "The golem's eyes flash with a bright red. Words appear in your mind as if spoken directly into you. \n"
+                + "The golem's eyes flash bright red. Words appear in your mind as if spoken directly into you. \n"
                 + "\u001b[33m'Answer my riddle, mortal, and prove your wit to pass.'\u001b[0m \n"
                 + "\u001b[33m'I am born in silence, yet I can be deafening. I never move, yet I can travel great distances. What am I?'\u001b[0m \n"
                 + "(To continue on you must answer the riddle. If you are stuck and wish for the answer simply type 'help')";
@@ -98,16 +99,22 @@ namespace TextBasedAdventureGame
                 + "You can faintly make out a passage past the \u001b[95maltar\u001b[0m. Continue on to the \u001b[32mnorth\u001b[0m?";
             roomArray[14].name = "Escape Tunnel: \n";
             roomArray[14].description = "As you make your way down the tunnel you can faintly see daylight at the end the end of it. \n"
-                + "The \u001b[32mexit\u001b[0m is finally at hand! \n"
-                + "\u001b[33mTHE END\u001b[0m.";
+                + "The exit is finally at hand! \n"
+                + "\u001b[33mTHE END\u001b[0m."
+                + "\n\nThere are two endings. If you wish to find the other type \u001b[33mRESTART\u001b[0m. \n"
+                + "To close the program type \u001b[33mEXIT\u001b[0m.";
 
             Console.WriteLine("You slowly come to in the middle of a dark stone room. \n");
 
-            while (userInput != "exit")
+            while (userInput != "exit" || userInput != "EXIT")
             {
                 Console.WriteLine(roomArray[curRoomNumber].name);
                 Console.WriteLine(roomArray[curRoomNumber].description);
-                if (curRoomNumber != 11 || curRoomNumber != 14)
+                if (curRoomNumber == 11 || curRoomNumber == 14)
+                {
+                    
+                }
+                else
                 {
                     Console.WriteLine("\nIn which direction would you like to travel?");
                 }
@@ -116,9 +123,18 @@ namespace TextBasedAdventureGame
 
                 Console.Clear();
 
-                if (userInput == "exit")
+                if (userInput == "exit" || userInput == "EXIT")
                 {
                     break;
+                }
+
+                if (userInput == "restart" || userInput == "RESTART")
+                {
+                    itemAquired = false;
+                    passageOpened = false;
+                    curRoomNumber = 0;
+
+                    Console.WriteLine("You slowly come to in the middle of a dark stone room. \n");
                 }
 
                 if ((userInput == "north" || userInput == "n") && roomArray[curRoomNumber].north > -1)
@@ -187,9 +203,10 @@ namespace TextBasedAdventureGame
                 {
                     Console.WriteLine("The answer to the golem's riddle is an \u001b[33mecho\u001b[0m. An echo is born in silence when a sound reflects off a surface, and it can be deafening if it reverberates loudly. Despite not physically moving, an echo can travel great distances as sound waves bounce and carry it through the environment.");
                 }
-                else
+                else if(roomArray[curRoomNumber] == roomArray[11])
                 {
-                    Console.WriteLine("This way is blocked");
+                    Console.WriteLine("The golem rumbles.\n"
+                        + "\u001b[31m'Incorrect'\u001b[0m");
                 }
             }
         }
