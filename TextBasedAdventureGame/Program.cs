@@ -19,7 +19,7 @@ namespace TextBasedAdventureGame
             //North, east, south, west (order)
             roomArray[0] = new Room(1, 2, -1, -1);
             roomArray[1] = new Room(4, -1, 0, -1);
-            roomArray[2] = new Room(3, -1, 0, -1);
+            roomArray[2] = new Room(3, -1, -1, 0);
             roomArray[3] = new Room(-2, -1, -1, 4);
             roomArray[4] = new Room(5, 3, 1, -1);
             roomArray[5] = new Room(6, -1, 4, -1);
@@ -35,24 +35,24 @@ namespace TextBasedAdventureGame
 
             roomArray[0].name = "Mine Entrance: \n";
             roomArray[0].description = "The mine's entrance is dimly lit, with wooden support beams and carts left abandoned. The walls glisten with the promise of riches, but the air is heavy with a sense of foreboding.\n" +
-                "Glancing behind you towards the \u001b[31msouth\u001b[0m is the caved in entrance that collapsed as soon as you walked in. \n"
+                "Glancing behind you towards the \u001b[31msouth\u001b[0m, you see the caved in entrance that collapsed as soon as you walked in. \n"
                 + "To the \u001b[32mnorth\u001b[0m you can see a passageway with faint light coming from it. \n"
                 + "To the \u001b[32meast\u001b[0m there is a small passageway just big enough for you to fit in.";
             roomArray[1].name = "Goblin's Lair: \n";
-            roomArray[1].description = "A chamber inhabited by a raucous band of goblins. Tattered sleeping mats, crude weapons, and scattered treasure hint at their presence. They eye you with suspicion. \n"
-                + "To the \u001b[32mnorth\u001b[0m you can see little twinkiling lights flickering out of a passageway. \n"
+            roomArray[1].description = "You are in a large chamber inhabited by a raucous band of goblins. Tattered sleeping mats, crude weapons, and scattered treasure hint at their presence. They eye you with suspicion. \n"
+                + "To the \u001b[32mnorth\u001b[0m you can see little twinkling lights flickering out of a passageway. \n"
                 + "To the \u001b[32msouth\u001b[0m you can see the mine entrance that you started in.";
             roomArray[2].name = "Steep Passage: \n";
             roomArray[2].description = "The passage slightly widens as you crawl through. \n"
                 + "Further on to the \u001b[32mnorth\u001b[0m you can see the straight passage quickly turns into an almost slide like slope. \n"
-                + "You could also return to the \u001b[32msouth\u001b[0m.";
+                + "You could also return to the \u001b[32mwest\u001b[0m.";
             roomArray[3].name = "Collapsed Tunnel: \n";
             roomArray[3].description = " You stand in a small branching tunnel. \n"
                 + "The branch to the \u001b[32mnorth\u001b[0m is collapsed and blocked with rubble. You can faintly make out some light through the cracks.\n" 
-                + "To the \u001b[31meast\u001b[0m you can see a steep upward slopping slide like tunnel. You don't think you could climb up that passage. \n"
+                + "To the \u001b[31meast\u001b[0m you can see a steep upward sloping slide like tunnel. You don't think you could climb up that passage. \n"
                 + "The branch to the \u001b[32mwest\u001b[0m is twinkling with light.";
             roomArray[4].name = "Crystal Cavern: \n";
-            roomArray[4].description = "A breathtaking cavern filled with glowing crystals that illuminate the area with an ethereal light. The walls shimmer with precious gems, but a mysterious aura lingers. \n"
+            roomArray[4].description = "You are in a breathtaking cavern filled with glowing crystals that illuminate the area with an ethereal light. The walls shimmer with precious gems, but a mysterious aura lingers. \n"
                 + "To the \u001b[32mnorth\u001b[0m is a sheer cliff face with a carved stone bridge crossing to the other side. \n"
                 + "To the \u001b[32meast\u001b[0m is a dark passageway. \n"
                 + "To the \u001b[32msouth\u001b[0m you can make out torchlight and a large cavern.";
@@ -61,7 +61,7 @@ namespace TextBasedAdventureGame
                 + "You can either head \u001b[32mnorth\u001b[0m to what looks like a small marketplace with carved stone stalls with brightly colored tent coverings; \n"
                 + "Or you can head \u001b[32msouth\u001b[0m towards the crystal filled cavern";
             roomArray[6].name = "Goblin Market: \n";
-            roomArray[6].description = "A bustling makeshift market set up by the goblins. The noise and haggling fill the air as they try to barter with you, but you don't understand goblinese.\n"
+            roomArray[6].description = "You stand in the midst of a bustling makeshift market set up by the goblins. The noise and haggling fill the air as they try to barter with you, but you don't understand goblinese.\n"
                 + "To the \u001b[32meast\u001b[0m is a small passageway that quickly opens up into a larger room. You can make out some boxes and supplies in this room. \n"
                 + "To the \u001b[32msouth\u001b[0m is the chiseled stone bridge crossing a chasm.";
             roomArray[7].name = "Storage Room: \n";
@@ -70,38 +70,38 @@ namespace TextBasedAdventureGame
                 + "You might be able to find something if you search through some of the boxes to the \u001b[33meast\u001b[0m. \n"
                 + "You could also walk back to the marketplace to the \u001b[32mwest\u001b[0m.";
             roomArray[8].name = "Haunted Shaft: \n";
-            roomArray[8].description = "A chilling passage filled with echoes of ghostly miners. The walls are adorned with crude drawings depicting their torment. An otherworldly presence is palpable.\n"
+            roomArray[8].description = "You slowly walk through a chilling passage filled with echoes of ghostly miners. The walls are adorned with crude drawings depicting their torment. An otherworldly presence is palpable.\n"
                 + "To the \u001b[32mnorth\u001b[0m you can see a large room with a raised platform in the center. You can't quite make out what's on it. \n"
-                + "To the \u001b[32msouth\u001b[0m you can return to the cluttered storage room";
+                + "To the \u001b[32msouth\u001b[0m you can return to the cluttered storage room.";
             roomArray[9].name = "Ancient Forge: \n";
             roomArray[9].description = "You stand on a raised platform in the center of a large room. A massive forge surrounded by intricate machinery stands before you. Enchanted anvils and old tools surround you. \n"
                 + "To the \u001b[32mnorth\u001b[0m is a small passage that leads into a enourmous cavern. \n"
                 + "To the \u001b[32meast\u001b[0m is another long passage but you can't quite make out the end of it, but you can see faint twinkling lights. \n"
-                + "You can also return back \u001b[32msouth\u001b[0m, towards the eery shaft.";
+                + "You can also return back \u001b[32msouth\u001b[0m, towards the eerie shaft.";
             roomArray[10].name = "Crystal Grotto: \n";
             roomArray[10].description = "You stand in a serene grotto illuminated by massive crystals. The tranquil atmosphere contrasts with the mine's darkness. You can hear a soft melody echoing through the air. \n"
                 + "You can either head \u001b[32mnorth\u001b[0m towards another room, \n"
                 + "Or you can head \u001b[32msouth\u001b[0m back towards the forge room.";
             roomArray[11].name = "Guardian Chamber: \n";
-            roomArray[11].description = "You enter a large chamber. At the far end of it stands a towering stone golem. As you enter the room you hear a loud clang and an iron gate closes behind you. \n"
-                + "The golem's eyes flash bright red. Words appear in your mind as if spoken directly into you. \n"
+            roomArray[11].description = "You enter a large chamber. At the far end of it stands a towering stone gargoyle. As you enter the room you hear a loud clang and an iron gate closes behind you. \n"
+                + "The gargoyle's eyes flash bright red. Words appear in your mind as if spoken directly into you. \n"
                 + "\u001b[33m'Answer my riddle, mortal, and prove your wit to pass.'\u001b[0m \n"
                 + "\u001b[33m'I am born in silence, yet I can be deafening. I never move, yet I can travel great distances. What am I?'\u001b[0m \n"
                 + "(To continue on you must answer the riddle. If you are stuck and wish for the answer simply type 'help')";
             roomArray[12].name = "Treasure Vault: \n";
-            roomArray[12].description = "A room adorned with piles of glittering treasure. Coins, jewels, and artifacts fill the space. You quickly fill your pockets with all the treasure you can. \n"
+            roomArray[12].description = "You enter a room adorned with piles of glittering treasure. Coins, jewels, and artifacts fill the space. You quickly fill your pockets with all the treasure you can. \n"
                 + "As soon as you grab the first piece of treasure you hear a click. The door you walked through had closed and locked behind you. \n"
                 + "The only way on is \u001b[32mnorth\u001b[0m.";
-            roomArray[13].name = "Cursed Alter: \n";
+            roomArray[13].name = "Cursed Altar: \n";
             roomArray[13].description = "An \u001b[95maltar\u001b[0m surrounded by ominous runes stands before you. As you walk in it feels as though your soul is being sucked out of you. \n"
                 + "You drop to your knees as a weakness comes over you. Your vision blurs and your mind buzzes with pure noise.\n"
                 + "You can faintly make out a passage past the \u001b[95maltar\u001b[0m. Continue on to the \u001b[32mnorth\u001b[0m?";
             roomArray[14].name = "Escape Tunnel: \n";
-            roomArray[14].description = "As you make your way down the tunnel you can faintly see daylight at the end the end of it. \n"
+            roomArray[14].description = "As you make your way down the tunnel you can faintly see daylight at the end of it. \n"
                 + "The exit is finally at hand! \n"
                 + "\u001b[33mTHE END\u001b[0m."
-                + "\n\nThere are two endings. If you wish to find the other type \u001b[33mRESTART\u001b[0m. \n"
-                + "To close the program type \u001b[33mEXIT\u001b[0m.";
+                + "\n\nThere are two endings. If you wish to find the other, type \u001b[33mRESTART\u001b[0m. \n"
+                + "To close the program, type \u001b[33mEXIT\u001b[0m.";
 
             Console.WriteLine("You slowly come to in the middle of a dark stone room. \n");
 
@@ -204,7 +204,7 @@ namespace TextBasedAdventureGame
                 }
                 else if(roomArray[curRoomNumber] == roomArray[11])
                 {
-                    Console.WriteLine("The golem rumbles.\n"
+                    Console.WriteLine("The gargoyle rumbles.\n"
                         + "\u001b[31m'Incorrect'\u001b[0m");
                 }
             }
