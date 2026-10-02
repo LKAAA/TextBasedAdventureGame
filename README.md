@@ -2,6 +2,15 @@
 
 A command-line adventure game developed in C# as an early exploration of game programming and object-oriented software design.
 
+
+<img width="480" height="270" alt="Screenshot 2026-10-01 233006" src="https://github.com/user-attachments/assets/7e7d408c-ea05-4867-9a61-225654a86090" />
+
+
+<img width="480" height="270" alt="Screenshot 2026-10-01 233050" src="https://github.com/user-attachments/assets/62548eb4-8c2c-4277-991d-bd26540e6330" />
+
+
+<img width="480" height="270" alt="Screenshot 2026-10-01 233132" src="https://github.com/user-attachments/assets/e112305f-17c5-47f2-9c22-e7c7e99a9fb6" />
+
 ## Overview
 
 Text-Based Adventure Game is a command-line RPG-style adventure in which the player interacts with the game world through text commands.
